@@ -1,0 +1,22 @@
+{
+    "name": "tchenu/myges",
+    "type": "library",
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Thibeault Chenu",
+            "email": "contact@tchenu.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyGes\\": "src/"
+        }
+    },
+    "scripts": {
+        "examples": "@php -S localhost:1337 -t examples"
+    }
+}
