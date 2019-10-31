@@ -36,10 +36,10 @@ You can connect your account with the `client-id` of the Skolae application.
 
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once  'vendor/autoload.php';
 
 try {
-	// client-id = skolae-app
+    // client-id = skolae-app
     $client = new MyGes\Client('skolae-app', 'your-login', 'your-password');
 } catch(Exception $e) {
     die($e->getMessage()); // bad credentials
@@ -71,7 +71,7 @@ And then browsing to `http://localhost:1337/profile.php` (or any example availab
 
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once  'vendor/autoload.php';
 
 try {
     $client = new MyGes\Client('<client-id>', '<login>', '<password>');
