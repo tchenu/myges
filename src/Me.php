@@ -13,6 +13,7 @@ class Me
     const GET_PROFILE_ENDPOINT  = '/profile';
     const GET_AGENDA_ENDPOINT   = '/agenda';
     const GET_NEWS_ENDPOINT     = '/news';
+    const GET_NEWS_BANNERS_ENDPOINT = '/news/banners';
     const GET_GRADES_ENDPOINT   = '/{year}/grades';
     const GET_ABSENCES_ENDPOINT = '/{year}/absences';
     const GET_TEACHERS_ENDPOINT = '/{year}/teachers';
@@ -119,6 +120,25 @@ class Me
         ]);
 
         return json_decode($response->getBody())->result;
+    }
+
+    /**
+     * Get news banners
+     *
+     * @return void
+     */
+    public function getNewsBanners()
+    {
+        $url = $this->getUrl(self::GET_NEWS_BANNERS_ENDPOINT);
+
+        $client = new HTTPClient();
+        $response = $client->request('GET', $url, [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->client->getAccessToken(),
+            ]
+        ]);
+
+        return json_decode($response->getBody())->result->content;
     }
 
     /**
