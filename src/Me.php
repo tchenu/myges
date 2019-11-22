@@ -6,7 +6,7 @@ use GuzzleHttp\Client as HTTPClient;
 
 class Me
 {
-    protected $client;
+    private $client;
 
     const SERVICES_URL = 'https://services.reseau-ges.fr';
 
@@ -29,9 +29,9 @@ class Me
     /**
      * Get current profile
      *
-     * @return void
+     * @return array
      */
-    public function getProfile()
+    public function getProfile() : ?array
     {
         $url = $this->getUrl(self::GET_PROFILE_ENDPOINT);
 
@@ -49,9 +49,9 @@ class Me
      * Update current profile
      *
      * @param array $fields
-     * @return void
+     * @return array
      */
-    public function updateProfile(array $fields)
+    public function updateProfile(array $fields) : ?array
     {
         $data = $this->getProfile();
 
@@ -79,9 +79,9 @@ class Me
      * @todo determine startAt and endedAt format
      * @param string $startAt
      * @param string $endedAt
-     * @return void
+     * @return array
      */
-    public function getAgenda(string $startAt, string $endedAt)
+    public function getAgenda(string $startAt, string $endedAt) : ?array
     {
         $url = $this->getUrl(self::GET_AGENDA_ENDPOINT);
 
@@ -103,9 +103,9 @@ class Me
      * Get news with pagination
      *
      * @param integer $page
-     * @return void
+     * @return array
      */
-    public function getNews(int $page = 0)
+    public function getNews(int $page = 0) : ?array
     {
         $url = $this->getUrl(self::GET_NEWS_ENDPOINT);
 
@@ -125,9 +125,9 @@ class Me
     /**
      * Get news banners
      *
-     * @return void
+     * @return array
      */
-    public function getNewsBanners()
+    public function getNewsBanners() : ?array
     {
         $url = $this->getUrl(self::GET_NEWS_BANNERS_ENDPOINT);
 
@@ -145,9 +145,9 @@ class Me
      * Get grades / year
      *
      * @param integer $year
-     * @return void
+     * @return array
      */
-    public function getGrades(int $year)
+    public function getGrades(int $year) : ?array
     {
         $url = $this->getUrl(self::GET_GRADES_ENDPOINT);
         $url = str_replace('{year}', $year, $url);
@@ -168,7 +168,7 @@ class Me
      * @param integer $year
      * @return void
      */
-    public function getAbsences(int $year)
+    public function getAbsences(int $year) : ?array
     {
         $url = $this->getUrl(self::GET_ABSENCES_ENDPOINT);
         $url = str_replace('{year}', $year, $url);
@@ -189,7 +189,7 @@ class Me
      * @param integer $year
      * @return void
      */
-    public function getTeachers(int $year)
+    public function getTeachers(int $year) : ?Object
     {
         $url = $this->getUrl(self::GET_TEACHERS_ENDPOINT);
         $url = str_replace('{year}', $year, $url);
@@ -210,7 +210,7 @@ class Me
      * @param integer $year
      * @return void
      */
-    public function getClasses(int $year)
+    public function getClasses(int $year) : ?Object
     {
         $url = $this->getUrl(self::GET_CLASSES_ENDPOINT);
         $url = str_replace('{year}', $year, $url);
@@ -231,7 +231,7 @@ class Me
      * @param integer $studentId
      * @return void
      */
-    public function getStudent(int $studentId)
+    public function getStudent(int $studentId) : ?Object
     {
         $url = $this->getUrl(self::GET_STUDENT_ENDPOINT);
         $url = str_replace('{studentId}', $studentId, $url);
@@ -252,7 +252,7 @@ class Me
      * @param integer $classeId
      * @return void
      */
-    public function getStudents(int $classeId)
+    public function getStudents(int $classeId) : ?Object
     {
         $url = $this->getUrl(self::GET_STUDENTS_ENDPOINT);
         $url = str_replace('{classeId}', $classeId, $url);

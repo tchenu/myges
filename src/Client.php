@@ -72,7 +72,7 @@ class Client
      *
      * @return void
      */
-    public function getAccessToken()
+    public function getAccessToken(): string
     {
         return $this->accessToken;
     }
