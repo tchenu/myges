@@ -41,7 +41,7 @@ require_once  'vendor/autoload.php';
 try {
     // client-id = skolae-app
     $client = new MyGes\Client('skolae-app', 'your-login', 'your-password');
-} catch(Exception $e) {
+} catch(MyGes\Exceptions\BadCredentialsException $e) {
     die($e->getMessage()); // bad credentials
 }
 ```
@@ -75,7 +75,7 @@ require_once  'vendor/autoload.php';
 
 try {
     $client = new MyGes\Client('<client-id>', '<login>', '<password>');
-} catch(Exception $e) {
+} catch(MyGes\Exceptions\BadCredentialsException $e) {
     die($e->getMessage()); // bad credentials
 }
 
