@@ -17,5 +17,6 @@ foreach ($grades as $grade)
     echo "Cours : " . $grade->course . '</br>';  
     echo "ECTS : " . $grade->ects . '</br>';  
     echo "Période : " . $grade->trimester_name . '</br>';  
+    echo "Notes : " . implode(',', $grade->grades) . '</br>';
     echo "</br>";
 }
