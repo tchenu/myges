@@ -31,7 +31,7 @@ class Me
      *
      * @return array
      */
-    public function getProfile() : ?array
+    public function getProfile() : ?object
     {
         $url = $this->getUrl(self::GET_PROFILE_ENDPOINT);
 
