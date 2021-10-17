@@ -9,7 +9,7 @@ class Client
     /**
      * OAuth Authorize URL
      */
-    const OAUTH_AUTHORIZE_URL = 'https://authentication.reseau-ges.fr/oauth/authorize?client_id={clientId}&response_type=token';
+    const OAUTH_AUTHORIZE_URL = 'https://authentication.kordis.fr/oauth/authorize?client_id={clientId}&response_type=token';
     
     /**
      * OAuth clientId

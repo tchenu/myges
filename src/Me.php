@@ -8,7 +8,7 @@ class Me
 {
     private $client;
 
-    const SERVICES_URL = 'https://services.reseau-ges.fr';
+    const SERVICES_URL = 'https://api.kordis.fr';
 
     const GET_PROFILE_ENDPOINT  = '/profile';
     const GET_AGENDA_ENDPOINT   = '/agenda';
@@ -16,7 +16,6 @@ class Me
     const GET_NEWS_BANNERS_ENDPOINT = '/news/banners';
     const GET_GRADES_ENDPOINT   = '/{year}/grades';
     const GET_ABSENCES_ENDPOINT = '/{year}/absences';
-    const GET_TEACHERS_ENDPOINT = '/{year}/teachers';
     const GET_CLASSES_ENDPOINT  = '/{year}/classes';
     const GET_STUDENTS_ENDPOINT = '/classes/{classeId}/students';
     const GET_STUDENT_ENDPOINT  = '/students/{studentId}';
@@ -171,27 +170,6 @@ class Me
     public function getAbsences(int $year) : ?array
     {
         $url = $this->getUrl(self::GET_ABSENCES_ENDPOINT);
-        $url = str_replace('{year}', $year, $url);
-
-        $client = new HTTPClient();
-        $response = $client->request('GET', $url, [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->client->getAccessToken(),
-            ]
-        ]);
-
-        return json_decode($response->getBody())->result;
-    }
-
-    /**
-     * Get teachers / year
-     *
-     * @param integer $year
-     * @return void
-     */
-    public function getTeachers(int $year) : ?Object
-    {
-        $url = $this->getUrl(self::GET_TEACHERS_ENDPOINT);
         $url = str_replace('{year}', $year, $url);
 
         $client = new HTTPClient();
